@@ -15,13 +15,12 @@
 }
 .login_box {
     text-align: center;
-    font-size: calc(2px + 2vmin);
+    font-size: calc(6px + 1vmin);
     background-color:#171b21 ;
     width: 20%;
-    height: 50%;
     border: 1px solid;
     border-color: #22262c;
-    border-radius: 5px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     margin-top: 10px;
@@ -29,12 +28,17 @@
     margin-right: auto;
     padding: 15px;
 }
-.icon {
+.link {
+    font-size: calc(7px + 1vmin);
+    color: #66a1bf;
+}
+.icon_login {
     font-size: calc(20px + 2vmin);
     color: #c7ced5;
     display: block;
     margin-left: auto;
     margin-right: auto;
+    padding-top: 50px;
     -webkit-text-stroke: 2px white;
 }
 
@@ -42,11 +46,31 @@
     display: flex;
     flex-direction: column;
 }
-
+.input_style {
+    background-color: #171b21;
+    font-size: calc(7px + 1vmin);
+    padding-bottom: 3px;
+    padding-top: 3px;
+    border: 1px solid;
+    border-color: #5C6064;
+    border-radius: 5px;
+    height: 150%;
+    color: white;
+}
 .form__label {
-    margin: 10px 0;
+    margin: 10px 0px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .form__btn {
-    margin-top: 30px
+    background-color: #438340;
+    color: white;
+    border: 1px solid;
+    border-color: white;
+    border-radius: 5px;
+    margin-top: 30px;
+}
+.signup {
+
 }

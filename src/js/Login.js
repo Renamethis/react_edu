@@ -1,5 +1,6 @@
 import React, { useCallback, useContext } from "react";
-import { Redirect } from "react-router";
+import { Redirect} from "react-router";
+import {Link} from "react-router-dom";
 import { AuthContext } from "./auth";
 import "../css/login.css"
 import app from './firebase.js'
@@ -22,18 +23,23 @@ export const Login = ({history}) => {
     }
     return (
         <div className="window">
-            <p className="icon">GETHUB</p>
+            <p className="icon_login">GETHUB</p>
+            <h2>Sign In</h2>
             <div className="login_box">
-                <h1>Sign Up</h1>
                 <form onSubmit={handleLogin}>
                     <div className="form">
-                        <label className="form__label">Email</label>
-                        <input name="email" type="email" placeholder="email"/>
-                        <label className="form__label">Password</label>
-                        <input name="password" type="password" placeholder="Password"/>
+                        <label className="form__label">Email-address</label>
+                        <input className="input_style" name="email" type="email" placeholder="Email"/>
+                        <label className="form__label">Password 
+                            <Link className="link" to="/forgot?user_email={email.value}">Forgot password?</Link>
+                        </label>
+                        <input className="input_style" name="password" type="password" placeholder="Password"/>
                         <button className="form__btn" type="submit">Sign Up</button>
                     </div>
                 </form>
+            </div>
+            <div className="signup">
+
             </div>
         </div>
     );
