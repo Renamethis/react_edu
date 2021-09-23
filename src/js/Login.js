@@ -26,11 +26,13 @@ export const Login = ({history}) => {
             <div className="login_box">
                 <h1>Sign Up</h1>
                 <form onSubmit={handleLogin}>
-                    <label>Email</label>
-                    <input name="email" type="email" placeholder="email"/>
-                    <label>Password</label>
-                    <input name="password" type="password" placeholder="Password"/>
-                    <button type="submit">Sign Up</button>
+                    <div className="form">
+                        <label className="form__label">Email</label>
+                        <input name="email" type="email" placeholder="email"/>
+                        <label className="form__label">Password</label>
+                        <input name="password" type="password" placeholder="Password"/>
+                        <button className="form__btn" type="submit">Sign Up</button>
+                    </div>
                 </form>
             </div>
         </div>

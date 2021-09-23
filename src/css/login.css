@@ -24,12 +24,10 @@
     border-radius: 5px;
     display: flex;
     flex-direction: column;
+    margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding: 15px;
 }
 .icon {
     font-size: calc(20px + 2vmin);
@@ -38,4 +36,17 @@
     margin-left: auto;
     margin-right: auto;
     -webkit-text-stroke: 2px white;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__label {
+    margin: 10px 0;
+}
+
+.form__btn {
+    margin-top: 30px
 }
