@@ -1,6 +1,6 @@
-import * as firebase from "firebase/app";
+import {initializeApp} from "firebase/app";
 import "firebase/auth";
-const app = firebase.initializeApp({
+const app = initializeApp({
   apiKey: process.env.REACT_APP_FIREBASE_KEY,
   authDomain:  process.env.REACT_APP_FIREBASE_DOMAIN,
   projectId: process.env.REACT_APP_PROJECT_ID,

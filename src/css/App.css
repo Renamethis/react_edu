@@ -67,11 +67,13 @@
 }
 .search {
   background: transparent;
-  margin: 0 20px 4px 0;
+  padding-bottom: 3px;
+  padding-top: 3px;
+  margin: 0px 20px 0px 10px;
   border: 1px solid;
   border-color: #5C6064;
   border-radius: 5px;
-
+  font-size: calc(5px + 1vmin);
 }
 .li_navbar {
   list-style-type: none;
