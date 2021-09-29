@@ -98,8 +98,6 @@
   height:100%;
   width:100%;
   background-color: #f6f8fa;
-  position: fixed;
-  justify-content: space-between;
 }
 .sidebar {
   height: 100%; /* Full-height: remove this if you want "auto" height */
@@ -177,9 +175,8 @@
   color: #626871;
 }
 .popular {
-  padding-top: 30px;
-  padding-left: 20%; 
-  padding-right: 30%;
+  margin-left: 252px;
+  padding: 30px;
 }
 .slider {
   border: 2px solid;

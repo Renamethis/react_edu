@@ -4,6 +4,11 @@ import {Home} from './Home.js'
 import {AuthProvider} from './auth.js'
 import {Login} from "./Login.js"
 import {Register} from "./Register.js"
+import {Layout} from "./Layout";
+import {Pulls} from "./pulls";
+import {Issues} from "./issues";
+import {Marketplace} from "./marketplace";
+import {Explore} from "./explore";
 function App() {
   return (
     <AuthProvider>
@@ -11,7 +16,31 @@ function App() {
         <div>
           <Route exact path="/login" component={Login}/>
           <Route exact path="/signup" component={Register}/>
-          <Route exact path="/" component={Home}/>
+            <Route exact path="/">
+              <Layout>
+                <Home />
+              </Layout>
+            </Route>
+            <Route path="/pulls">
+              <Layout>
+              <Pulls/>
+              </Layout>
+            </Route>
+            <Route path="/issues">
+            <Layout>
+              <Issues/>
+            </Layout>
+          </Route>
+            <Route path="/marketplace">
+              <Layout>
+              <Marketplace/>
+              </Layout>
+            </Route>
+            <Route path="/explore">
+              <Layout>
+              <Explore/>
+              </Layout>
+            </Route>
         </div>
       </BrowserRouter>
      </AuthProvider>
