@@ -192,3 +192,16 @@
   font-size: calc(5px + 1vmin);
   color:black;
 }
+
+.slider__container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.slider__left-block {
+  max-width: 150px;
+}
+
+.slider-line {
+  border-bottom: 1px solid gray;
+}

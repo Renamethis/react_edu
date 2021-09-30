@@ -31,17 +31,23 @@ export function Home() {
             <div className="popular">
                 <Slider className="slider" {...settings}>
                 <div>
-                    <div className="slider-line">
-                        <b>Repository_1</b>
-                        <p>Contributors:</p>
-                    </div>
-                    <div className="default_text">
-                        Description
-                    </div>
-                    <div>
-                        <canvas id="test" width="200" height="50">
+                    <div className="slider__container">
+                        <div className="slider__left-block">
+                            <div className="slider-line">
+                                <p>Repository_1</p>
+                            </div>
+                            <div className="default_text">
+                                Description
+                            </div>
+                            <div>
+                                <canvas id="test" width="200" height="50">
 
-                        </canvas>
+                                </canvas>
+                            </div>
+                        </div>
+                        <div>
+                            HAAHAHAH
+                        </div>
                     </div>
                 </div>
                 <div>
