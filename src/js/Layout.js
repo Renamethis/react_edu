@@ -3,7 +3,10 @@ import {NavLink} from "react-router-dom";
 import bell from "../images/bell.png";
 import plus from "../images/plus.png";
 import repo from "../images/repo.png";
-
+import Dropdown from 'react-dropdown';
+const plus_options = [
+  'New repository', 'Import repository', 'New gist', 'New organization'
+];
 export const Layout = ({children}) => {
   return (
   <div className="Main">
@@ -26,7 +29,16 @@ export const Layout = ({children}) => {
       </div>
       <div className="header-right">
         <NavLink to="/explore"><img className="bell" src={bell}></img></NavLink>
-        <NavLink to="/explore"><img className="plus" src={plus}></img></NavLink>
+        <Dropdown>
+          <Dropdown.Toggle variant="success" id="dropdown-basic">
+          </Dropdown.Toggle>
+
+          <Dropdown.Menu>
+            <Dropdown.Item href="/explore">Action</Dropdown.Item>
+            <Dropdown.Item href="/explore">Another action</Dropdown.Item>
+            <Dropdown.Item href="/explore">Something else</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
       </div>
     </header>
     <div className="sidebar">

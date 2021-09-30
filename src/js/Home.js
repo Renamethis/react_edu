@@ -33,20 +33,21 @@ export function Home() {
                 <div>
                     <div className="slider__container">
                         <div className="slider__left-block">
-                            <div className="slider-line">
-                                <p>Repository_1</p>
+                            <div className="slider_item">
+                              <b className="slider-line head_text">protocolbuffers/protobuf</b>
                             </div>
-                            <div className="default_text">
-                                Description
+                            <div className="slider_item">
+                                <span className="slider-line head_text">Description</span>
                             </div>
-                            <div>
-                                <canvas id="test" width="200" height="50">
-
-                                </canvas>
+                            <div className="slider_item">
+                               <p className="default_text">Protocol Buffers - Google's data interchange format</p>
                             </div>
                         </div>
-                        <div>
-                            HAAHAHAH
+                        <div className = "slider__right-block">
+                            <p className="slider-line head_text">Contributors</p>
+                            <p className="link_text">Renamethis</p>
+                            <p className="link_text">Hellothere</p>
+                            <p className="link_text">BuyThere</p>
                         </div>
                     </div>
                 </div>

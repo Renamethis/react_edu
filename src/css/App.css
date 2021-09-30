@@ -98,6 +98,7 @@
   height:100%;
   width:100%;
   background-color: #f6f8fa;
+  position:fixed;
 }
 .sidebar {
   height: 100%; /* Full-height: remove this if you want "auto" height */
@@ -175,8 +176,9 @@
   color: #626871;
 }
 .popular {
-  margin-left: 252px;
+  margin-left: 0pxßß;
   padding: 30px;
+  width: 60%;
 }
 .slider {
   border: 2px solid;
@@ -184,9 +186,8 @@
   border-color: #5C6064;
   border-radius: 10px;
 }
-.slider-item {
-  display: flex;
-  justify-content: space-between;
+.slider_item {
+  padding-bottom: 10px;
 }
 .default_text {
   font-size: calc(5px + 1vmin);
@@ -199,9 +200,20 @@
 }
 
 .slider__left-block {
-  max-width: 150px;
+  padding-left: 15px;
+  padding-top: 7px;
+  padding-bottom: 7px;
 }
-
+.slider__right-block {
+  padding-right: 15px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
 .slider-line {
-  border-bottom: 1px solid gray;
+  padding-bottom: 3px;
+  border-bottom: 1px solid #d9dee3;
+}
+.link_text {
+  font-size: calc(2px + 2vmin);
+  color: blue;
 }
