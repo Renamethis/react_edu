@@ -17,9 +17,9 @@ function App() {
           <Route exact path="/login" component={Login}/>
           <Route exact path="/signup" component={Register}/>
             <Route exact path="/">
-              <Layout>
+              <Layout className="grid_layout">
                 <Home />
-              </Layout>
+              </Layout>      
             </Route>
             <Route path="/pulls">
               <Layout>

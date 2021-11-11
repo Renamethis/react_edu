@@ -1,7 +1,3 @@
-import {Pulls} from './pulls.js';
-import {Issues} from './issues.js';
-import {Marketplace} from './marketplace.js';
-import {Explore} from './explore.js';
 import '../css/App.css';
 import {Route, NavLink, BrowserRouter} from "react-router-dom";
 import bell from '../images/bell.png'
@@ -36,7 +32,7 @@ export function Home() {
     return (
         <BrowserRouter>
         <Grid container alignItems="stretch">
-          <Grid item xs={6}>
+          <Grid item xs={7}>
               <div className="popular">
                 <b className="big_text">Popular repositories</b>
                 <Slider className="slider" {...settings}>
@@ -54,11 +50,11 @@ export function Home() {
                               </div>
                           </div>
                           <div className = "slider__right-block">
-                              <p className="slider-line head_text">Contributors</p>
-                              <p className="link_text slider-line">Renamethis</p>
-                              <p className="link_text slider-line">deannagarcia</p>
-                              <p className="link_text slider-line">Roger Knapp</p>
-                              <p className = "small_text"> + 774 contributors </p>
+                              <p><span className="slider-line head_text">Contributors</span></p>
+                              <p><span className="link_text slider-line">Renamethis</span></p>
+                              <p><span className="link_text slider-line">deannagarcia</span></p>
+                              <p><span className="link_text slider-line">Roger Knapp</span></p>
+                              <p><span className = "small_text"> + 774 contributors </span></p>
                           </div>
                       </div>
                   </div>
@@ -76,11 +72,11 @@ export function Home() {
                           </div>
                       </div>
                       <div className = "slider__right-block">
-                          <p className="slider-line head_text">Contributors</p>
-                          <p className="slider-line link_text">ozantonkal</p>
-                          <p className="slider-line link_text">Alexander Karsakov</p>
-                          <p className="slider-line link_text">Vitaly Tuzov</p>
-                          <p className = "small_text"> + 1,306 contributors </p>
+                          <p><span className="slider-line head_text">Contributors</span></p>
+                          <p><span className="slider-line link_text">ozantonkal</span></p>
+                          <p><span className="slider-line link_text">Alexander Karsakov</span></p>
+                          <p><span className="slider-line link_text">Vitaly Tuzov</span></p>
+                          <p><span className = "small_text"> + 1,306 contributors </span></p>
                       </div>
                   </div>
                   </div>
@@ -93,6 +89,7 @@ export function Home() {
                 <p className="activity_text">1 commit to <p className="branch">master</p></p>
                 <p className="activity_text"><a href="#">12x4sa</a> Update</p>
               </div>
+              <div className="slider_line"></div>
               <p className="head_text_activity"><img className="avatar" src="https://avatars.githubusercontent.com/u/29013070?s=20&v=4"/><b>Renamethis </b>&nbsp;pushed to <b>Nickname1/test_repo</b></p>
               <div className="activity_tab">
                 <p className="activity_text">1 commit to <p className="branch">dev_branch_v1.01</p></p>
@@ -168,6 +165,30 @@ export function Home() {
               </div>
             </Grid>
           </Grid>
+          <div className="footer_container">
+            <div className="footer">
+              <p className="footer_text">© 2021 GetHub, Inc.</p>
+            </div>
+            <div className="footer">
+              <a className="footer_text" href="#">Blog</a>
+              <a className="footer_text" href="#">About</a>
+              <a className="footer_text" href="#">Shop</a>
+              <a className="footer_text" href="#">Conctact Gethub</a>
+              <a className="footer_text" href="#">Pricing</a>
+            </div>
+            <div className="footer">
+              <a className="footer_text" href="#">Api</a>
+              <a className="footer_text" href="#">Training</a>
+              <a className="footer_text" href="#">Status</a>
+              <a className="footer_text" href="#">Security</a>
+            </div>
+            <div className="footer">
+              <a className="footer_text" href="#">Terms</a>
+              <a className="footer_text" href="#">Privacy</a>
+              <a className="footer_text" href="#">Docs</a>
+            </div>
+          </div>
         </BrowserRouter>
+
     );
 }

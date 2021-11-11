@@ -30,11 +30,11 @@ export const Login = ({history}) => {
                     <div className="form">
                         <label className="form__label">Email-address</label>
                         <input className="input_style" name="email" type="email" placeholder="Email"/>
-                        <label className="form__label">Password 
+                        <label className="form__label">Password
                             <Link className="link" to="/forgot?user_email={email.value}">Forgot password?</Link>
                         </label>
                         <input className="input_style" name="password" type="password" placeholder="Password"/>
-                        <button className="form__btn" type="submit">Sign Up</button>
+                        <button className="form__btn" type="submit">Sign In</button>
                     </div>
                 </form>
             </div>
