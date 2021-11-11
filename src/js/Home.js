@@ -165,29 +165,6 @@ export function Home() {
               </div>
             </Grid>
           </Grid>
-          <div className="footer_container">
-            <div className="footer">
-              <p className="footer_text">© 2021 GetHub, Inc.</p>
-            </div>
-            <div className="footer">
-              <a className="footer_text" href="#">Blog</a>
-              <a className="footer_text" href="#">About</a>
-              <a className="footer_text" href="#">Shop</a>
-              <a className="footer_text" href="#">Conctact Gethub</a>
-              <a className="footer_text" href="#">Pricing</a>
-            </div>
-            <div className="footer">
-              <a className="footer_text" href="#">Api</a>
-              <a className="footer_text" href="#">Training</a>
-              <a className="footer_text" href="#">Status</a>
-              <a className="footer_text" href="#">Security</a>
-            </div>
-            <div className="footer">
-              <a className="footer_text" href="#">Terms</a>
-              <a className="footer_text" href="#">Privacy</a>
-              <a className="footer_text" href="#">Docs</a>
-            </div>
-          </div>
         </BrowserRouter>
 
     );

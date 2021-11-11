@@ -332,7 +332,6 @@
   padding:2px;
 }
 .footer_container {
-  position: fixed;
   display: flex;
   padding: 10px;
   width: 100%;
