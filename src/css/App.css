@@ -334,7 +334,7 @@
 .footer_container {
   display: flex;
   padding: 10px;
-  width: 100%;
+  margin-left: 200px;
   background-color: white;
 }
 .footer {
