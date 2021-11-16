@@ -75,19 +75,6 @@
   color:#767F87;
   text-decoration: none;
 }
-@media only screen and (max-width: 1000px) {
-  .App-header {
-    font-size: calc(8px + 1vmin);
-    height: 8%;
-  }
-  .search {
-    margin-top: 5px;
-  }
-  .title__text {
-    font-size: 10px;
-    margin-right: 10px;
-  }
-}
 
 .Main {
   height:100%;
@@ -98,7 +85,7 @@
 }
 .sidebar {
   height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 200px; /* Set the width of the sidebar */
+  width: 15%; /* Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   background-color: white; /* Black */
   border: 1px solid;
@@ -107,6 +94,7 @@
   font-size: calc(4px + 2vmin);
   align-items: center;
   text-align: center;
+  min-width: 170px;
 }
 .avatar {
   width: 20px;
@@ -339,7 +327,7 @@
 .footer_container {
   display: flex;
   padding: 10px;
-  margin-left: 200px;
+  margin-left: 15%;
   background-color: white;
 }
 .footer {
@@ -356,4 +344,21 @@
 }
 .footer_text:hover {
   text-decoration: underline;
+}
+@media only screen and (max-width: 1000px) {
+  .App-header {
+    font-size: calc(5px + 2vmin);
+    height: 7%;
+  }
+  .search {
+    margin-top: 5px;
+  }
+  .title__text {
+    padding-top: 3px;
+    font-size: 15px;
+    margin-right: 10px;
+  }
+  .footer_container {
+    margin-left: 170px;
+  }
 }
