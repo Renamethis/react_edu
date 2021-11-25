@@ -4,6 +4,7 @@ import {Home} from './Home.js'
 import {AuthProvider} from './auth.js'
 import {Login} from "./Login.js"
 import {Register} from "./Register.js"
+import {StartPage} from "./StartPage.js"
 import {Layout} from "./Layout";
 import {Pulls} from "./pulls";
 import {Issues} from "./issues";
@@ -14,12 +15,13 @@ function App() {
     <AuthProvider>
       <BrowserRouter>
         <div>
+          <Route exact path="/startpage" component={StartPage}/>
           <Route exact path="/login" component={Login}/>
           <Route exact path="/signup" component={Register}/>
             <Route exact path="/">
               <Layout className="grid_layout">
                 <Home />
-              </Layout>      
+              </Layout>
             </Route>
             <Route path="/pulls">
               <Layout>

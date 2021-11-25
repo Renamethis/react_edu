@@ -24,7 +24,7 @@ function getWindowDimensions() {
 export function Home() {
     const { currentUser, setCurrentUser } = useContext(AuthContext);
     if(!currentUser) {
-        return <Redirect to="/login" />;
+        return <Redirect to="/startpage" />;
     }
     const settings = {
         dots: true

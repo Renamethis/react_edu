@@ -1,0 +1,50 @@
+.Main {
+  display: flex;
+  background : black;
+  position: fixed;
+}
+.btn {
+  background-color: #438340;
+  font-size: calc(8px + 1vmin);
+  color: white;
+  border: 1px solid;
+  border-color: white;
+  border-radius: 5px;
+  padding-right: 5px;
+  width: 15%;
+}
+.MainPanel {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+}
+.head_text {
+  font-size: calc(10px + 10vmin);
+  margin: 0 20px 0 0;
+  color:#ffffff;
+  font-weight: bolder;
+  position: sticky;
+  margin-right: 20px;
+}
+.default_text {
+  font-size: calc(10px + 5vmin);
+  margin: 0 20px 0 0;
+  color:white;
+  position: sticky;
+  margin-right: 20px;
+}
+.email {
+  background-color: white;
+  border: 1px solid;
+  border-color: #5C6064;
+  border-radius: 10px;
+  font-size: calc(20px + 2vmin);
+  color: gray;
+}
+.register {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+}
