@@ -1,5 +1,5 @@
 export function Marketplace() {
   return (
-    <div>Issues</div>
+    <div>MARKETPLACE</div>
   )
 }

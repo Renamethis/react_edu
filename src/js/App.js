@@ -15,10 +15,10 @@ function App() {
     <AuthProvider>
       <BrowserRouter>
         <div>
-          <Route exact path="/startpage" component={StartPage}/>
+          <Route exact path="/" component={StartPage}/>
           <Route exact path="/login" component={Login}/>
           <Route exact path="/signup" component={Register}/>
-            <Route exact path="/">
+            <Route exact path="/main">
               <Layout className="grid_layout">
                 <Home />
               </Layout>

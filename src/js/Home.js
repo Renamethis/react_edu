@@ -14,18 +14,8 @@ import Grid from '@mui/material/Grid';
 import NewReleasesSharpIcon from '@mui/icons-material/NewReleasesSharp';
 import CircleSharpIcon from '@mui/icons-material/CircleSharp';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
-function getWindowDimensions() {
-  const { innerWidth: width, innerHeight: height } = window;
-  return {
-    width,
-    height
-  };
-}
 export function Home() {
     const { currentUser, setCurrentUser } = useContext(AuthContext);
-    if(!currentUser) {
-        return <Redirect to="/startpage" />;
-    }
     const settings = {
         dots: true
       };

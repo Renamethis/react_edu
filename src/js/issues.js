@@ -1,5 +1,5 @@
 export function Issues() {
   return (
-    <div>Issues</div>
+    <div>ISSUES</div>
   )
 }

@@ -1,32 +1,87 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import Globe from 'react-globe.gl';
 import '../css/start.css';
-export function StartPage() {
-  const N = 300;
-  const gData = [...Array(N).keys()].map(() => ({
-    lat: (Math.random() - 0.5) * 180,
-    lng: (Math.random() - 0.5) * 360,
-    size: Math.random() / 5,
-    color: ['red', 'white', 'blue', 'green'][Math.round(Math.random() * 3)]
-  }));
+import indexBy from 'index-array-by';
+import * as d3 from "d3";
+export const  StartPage = ({history}) => {
+  const handleClick = useCallback(async event => {
+    event.preventDefault();
+    const { email } = event.target.elements;
+    history.push("/login")
+  }, [history]);
+  const { useState, useEffect, useRef } = React;
+
+  const COUNTRY = 'United States';
+  const OPACITY = 0.22;
+
+  const airportParse = ([airportId, name, city, country, iata, icao, lat, lng, alt, timezone, dst, tz, type, source]) => ({ airportId, name, city, country, iata, icao, lat, lng, alt, timezone, dst, tz, type, source });
+  const routeParse = ([airline, airlineId, srcIata, srcAirportId, dstIata, dstAirportId, codeshare, stops, equipment]) => ({ airline, airlineId, srcIata, srcAirportId, dstIata, dstAirportId, codeshare, stops, equipment});
+    const globeEl = useRef();
+    const [airports, setAirports] = useState([]);
+    const [routes, setRoutes] = useState([]);
+
+  useEffect(() => {
+    // load data
+    Promise.all([
+      fetch('https://raw.githubusercontent.com/jpatokal/openflights/master/data/airports.dat').then(res => res.text())
+        .then(d => d3.csvParseRows(d, airportParse)),
+      fetch('https://raw.githubusercontent.com/jpatokal/openflights/master/data/routes.dat').then(res => res.text())
+        .then(d => d3.csvParseRows(d, routeParse))
+    ]).then(([airports, routes]) => {
+
+      const byIata = indexBy(airports, 'iata', false);
+
+      const filteredRoutes = routes
+        .filter(d => byIata.hasOwnProperty(d.srcIata) && byIata.hasOwnProperty(d.dstIata)) // exclude unknown airports
+        .filter(d => d.stops === '0') // non-stop flights only
+        .map(d => Object.assign(d, {
+          srcAirport: byIata[d.srcIata],
+          dstAirport: byIata[d.dstIata]
+        }))
+        .filter(d => d.srcAirport.country === COUNTRY && d.dstAirport.country !== COUNTRY); // international routes from country
+
+      setAirports(airports);
+      setRoutes(filteredRoutes);
+    });
+  }, []);
+  useEffect(() => {
+    // aim at continental US centroid
+    globeEl.current.pointOfView({ lat: 39.6, lng: -98.5, altitude: 2 });
+  }, []);
   return (
-  <div className="Main">
+  <div className="StartMain">
     <div className="MainPanel">
-      <p className="head_text">Where the world builds software </p>
-      <p className="default_text">Millions of developers and companies build, ship, and maintain their software on GetHub—the largest and most advanced development platform in the world.</p>
-      <div className="register">
-        <input placeholder="Email adress" className="email" type="text" name="name"/>
-        <button className="btn" type="submit">Sign up</button>
-      </div>
+      <p className="head_text_start">Where the world builds software </p>
+      <p className="default_text_start">Millions of developers and companies build, ship, and maintain their software on GetHub—the largest and most advanced development platform in the world.</p>
+      <form className="register" onSubmit={handleClick}>
+          <input placeholder="Email adress" className="email" name="email" type="email"/>
+          <button className="button" type="submit" >Sign In</button>
+          <button className="button" type="button" style={{background:"#69a6f8"}}>Sign up</button>
+      </form>
   </div>
-    <Globe
+    <Globe 
+        ref={globeEl}
         globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
-        pointsData={gData}
-        pointAltitude="size"
-        pointColor="color"
-        backgroundColor="black"
-        width="700"
+
+        arcsData={routes}
+        arcLabel={d => `${d.airline}: ${d.srcIata} &#8594; ${d.dstIata}`}
+        arcStartLat={d => +d.srcAirport.lat}
+        arcStartLng={d => +d.srcAirport.lng}
+        arcEndLat={d => +d.dstAirport.lat}
+        arcEndLng={d => +d.dstAirport.lng}
+        arcDashLength={0.25}
+        arcDashGap={1}
+        arcDashInitialGap={() => Math.random()}
+        arcDashAnimateTime={4000}
+        arcColor={d => [`rgba(0, 255, 0, ${OPACITY})`, `rgba(255, 0, 0, ${OPACITY})`]}
+        arcsTransitionDuration={0}
+        pointsData={airports}
+        pointColor={() => 'orange'}
+        pointAltitude={0}
+        pointRadius={0.02}
+        pointsMerge={true}
+        width={700}
+        backgroundColor={"#000000"}
       />
-  </div>
-  );
+  </div>);
 }

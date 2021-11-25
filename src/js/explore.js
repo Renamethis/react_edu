@@ -1,5 +1,5 @@
 export function Explore() {
   return (
-    <div>Issues</div>
+    <div>EXPLORE</div>
   )
 }

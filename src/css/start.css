@@ -1,39 +1,42 @@
-.Main {
+.StartMain {
   display: flex;
   background : black;
   position: fixed;
+  justify-content: center;
+  padding-left: 10px;
 }
-.btn {
+.button {
   background-color: #438340;
   font-size: calc(8px + 1vmin);
   color: white;
   border: 1px solid;
   border-color: white;
-  border-radius: 5px;
-  padding-right: 5px;
+  border-radius: 10px;
   width: 15%;
+  margin-right: 10px;
 }
 .MainPanel {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 50%;
+  width: 40%;
 }
-.head_text {
-  font-size: calc(10px + 10vmin);
+.head_text_start {
+  font-size: calc(10px + 8vmin);
   margin: 0 20px 0 0;
   color:#ffffff;
   font-weight: bolder;
   position: sticky;
-  margin-right: 20px;
+  margin-bottom: 15px;
+
 }
-.default_text {
-  font-size: calc(10px + 5vmin);
+.default_text_start {
+  font-size: calc(10px + 4vmin);
   margin: 0 20px 0 0;
-  color:white;
+  color: #8493af;
   position: sticky;
-  margin-right: 20px;
+  margin-bottom: 20px;
 }
 .email {
   background-color: white;
@@ -42,6 +45,7 @@
   border-radius: 10px;
   font-size: calc(20px + 2vmin);
   color: gray;
+  margin-right:10px;
 }
 .register {
   display: flex;
