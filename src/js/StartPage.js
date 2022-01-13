@@ -1,9 +1,32 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Globe from 'react-globe.gl';
 import '../css/start.css';
 import indexBy from 'index-array-by';
 import * as d3 from "d3";
+function getWindowDimensions() {
+  const { innerWidth: width, innerHeight: height } = window;
+  return {
+    width,
+    height
+  };
+}
+
+export default function useWindowDimensions() {
+  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowDimensions(getWindowDimensions());
+    }
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return windowDimensions;
+}
 export const  StartPage = ({history}) => {
+  const { height, width } = useWindowDimensions();
   const handleClick = useCallback(async event => {
     event.preventDefault();
     const { email } = event.target.elements;
@@ -59,7 +82,8 @@ export const  StartPage = ({history}) => {
           <button className="button" type="button" style={{background:"#69a6f8"}}>Sign up</button>
       </form>
   </div>
-    <Globe 
+    <Globe
+        className="globe"
         ref={globeEl}
         globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
 
@@ -80,7 +104,8 @@ export const  StartPage = ({history}) => {
         pointAltitude={0}
         pointRadius={0.02}
         pointsMerge={true}
-        width={700}
+        width={width*0.55}
+        height={height}
         backgroundColor={"#000000"}
       />
   </div>);

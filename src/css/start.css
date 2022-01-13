@@ -52,3 +52,6 @@
   justify-content: flex-start;
   flex-direction: row;
 }
+.globe {
+  width: 100px;
+}
