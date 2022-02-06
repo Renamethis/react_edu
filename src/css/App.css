@@ -85,7 +85,7 @@
 }
 .sidebar {
   height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 15%; /* Set the width of the sidebar */
+  /*width: 15%;*/ /* Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   background-color: white; /* Black */
   border: 1px solid;
@@ -95,6 +95,7 @@
   align-items: center;
   text-align: center;
   min-width: 170px;
+  max-width: 230px;
 }
 .avatar {
   width: 20px;
