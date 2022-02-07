@@ -27,10 +27,13 @@ export default function useWindowDimensions() {
 }
 export const  StartPage = ({history}) => {
   const { height, width } = useWindowDimensions();
+  const handleSumbit = useCallback(async event => {
+    event.preventDefault();
+    history.push("/login")
+  }, [history]);
   const handleClick = useCallback(async event => {
     event.preventDefault();
-    const { email } = event.target.elements;
-    history.push("/login")
+    history.push("/signup")
   }, [history]);
   const { useState, useEffect, useRef } = React;
 
@@ -76,10 +79,10 @@ export const  StartPage = ({history}) => {
     <div className="MainPanel">
       <p className="head_text_start">Where the world builds software </p>
       <p className="default_text_start">Millions of developers and companies build, ship, and maintain their software on GetHub—the largest and most advanced development platform in the world.</p>
-      <form className="register" onSubmit={handleClick}>
+      <form className="register" onSubmit={handleSumbit}>
           <input placeholder="Email adress" className="email" name="email" type="email"/>
           <button className="button" type="submit" >Sign In</button>
-          <button className="button" type="button" style={{background:"#69a6f8"}}>Sign up</button>
+          <button className="button" type="button" style={{background:"#69a6f8"}} onClick={handleClick}>Sign up</button>
       </form>
   </div>
     <Globe

@@ -1,21 +1,25 @@
-import React, { useCallback, useContext } from "react";
+import React, { useCallback, useContext, useState} from "react";
 import { Redirect} from "react-router";
 import {Link, useLocation} from "react-router-dom";
 import { AuthContext } from "./auth";
-import "../css/login.css"
-import app from './firebase.js'
-import {signInWithEmailAndPassword, getAuth} from "firebase/auth";
+import "../css/sign.css"
+const axios = require('axios')
 export const Login = ({history}) => {
+    const [label, setLabel] = useState("")
     const handleLogin = useCallback(async event => {
         event.preventDefault();
-        const { email, password } = event.target.elements;
-        try {
-            const auth = getAuth();
-            signInWithEmailAndPassword(auth, email.value, password.value).then((user) => setCurrentUser(user.user));
-            history.push("/main")
-        } catch(error) {
-            alert(error);
-        }
+        const headers = {
+            'Content-Type': 'application/json'
+        };    
+        var { email, password } = event.target.elements;
+        email = email.value
+        password = password.value
+        axios.post(`${process.env.REACT_APP_API_URL}/auth/login/`, { email, password }, {headers})
+            .then((response) => {
+                history.push("/main")
+            }).catch((err) => {
+                setLabel(err.response.data.detail.toString())
+            });
     }, [history]);
     const { currentUser, setCurrentUser } = useContext(AuthContext);
     if(currentUser) {
@@ -34,6 +38,7 @@ export const Login = ({history}) => {
                             <Link className="link" to="/forgot?user_email={email.value}">Forgot password?</Link>
                         </label>
                         <input className="input_style" name="password" type="password" placeholder="Password"/>
+                        <label className="error">{label}</label>
                         <button className="form__btn" type="submit">Sign In</button>
                     </div>
                 </form>

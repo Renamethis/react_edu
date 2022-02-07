@@ -4,20 +4,20 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, Permis
 # User Manager 
 class UserManager(BaseUserManager):
 
-    def create_user(self, nickname, email, password=None, **kwargs):
+    def create_user(self, username, email, password=None, **kwargs):
         """Create and return a `User` with an email, phone number, username and password."""
-        if nickname is None:
+        if username is None:
             raise TypeError('Users must have a username.')
         if email is None:
             raise TypeError('Users must have an email.')
 
-        user = self.model(username=nickname, email=self.normalize_email(email))
+        user = self.model(username=username, email=self.normalize_email(email))
         user.set_password(password)
         user.save(using=self._db)
 
         return user
 
-    def create_superuser(self, nickname, email, password):
+    def create_superuser(self, username, email, password):
         """
         Create and return a `User` with superuser (admin) permissions.
         """
@@ -25,10 +25,10 @@ class UserManager(BaseUserManager):
             raise TypeError('Superusers must have a password.')
         if email is None:
             raise TypeError('Superusers must have an email.')
-        if nickname is None:
+        if username is None:
             raise TypeError('Superusers must have an username.')
 
-        user = self.create_user(nickname, email, password)
+        user = self.create_user(username, email, password)
         user.is_superuser = True
         user.is_staff = True
         user.save(using=self._db)
@@ -45,10 +45,9 @@ class Repository(models.Model):
 
 # User Django model
 class User(AbstractBaseUser):
-    nickname = models.CharField("Nickname", max_length=20)
-    password = models.CharField("Password", max_length=30) 
+    username = models.CharField(db_index=True, max_length=255, unique=True, default=False)
     name = models.CharField("First and Last name", max_length=255)
-    email = models.EmailField()
+    email = models.EmailField(db_index=True, unique=True,  null=True, blank=True)
     phone = models.CharField(max_length=20)
     repositories = models.ManyToManyField(Repository)
     USERNAME_FIELD = 'email'
@@ -57,5 +56,5 @@ class User(AbstractBaseUser):
     is_staff = models.BooleanField(default=False)
     objects = UserManager()
     def __str__(self):
-        return f"{self.nickname}"
+        return f"{self.username}"
 
